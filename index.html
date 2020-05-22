@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Salary Calculator 2.0</title>
+</head>
+<body>
+    <header>
+        <div class="title head">
+            <h1 class="salary-calculator">Salary Calculator</h1>
+        </div>
+    </header>
+    <section class="add-employee">
+        <div class="title add-e">
+            <h2 class="add-employee">Add Employee</h2>
+        </div>
+        <div class="inputs add-e ">
+            <form id="add-employee-inputs">
+                <input id="first-name" type="text" placeholder="First Name">
+                <input id="last-name" type="text" placeholder="Last Name">
+                <input id="id" type="text" placeholder="ID">
+                <input id="title" type="text" placeholder="Title">
+                <input id="annual-salary" type="text" placeholder="Annual Salary">
+                <button id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+    <section class="employees-table">
+        <div class="title employee-list">
+            <h2 class="employees">Employees</h2>
+        </div>
+        <div class="employees-table-area">
+            <table id="employees-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    	<td>Jen</td>
+                    	<td>Barber</td>
+                    	<td>4521</td>
+                    	<td>Team Lead</td>
+                    	<td>$ 80,000</td>
+                    	<td><button class="delete-employee">Delete</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr></tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+    <section class="total-monthly-salary-number-area">
+        <div class="title total-monthly-salary">
+            <h3>Total Monthly: $<span id="total-salary"></span></h3>
+        </div>
+    </section>
+</body>
+</html>
