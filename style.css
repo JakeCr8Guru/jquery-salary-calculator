@@ -60,6 +60,7 @@ input {
     color: 373b44;
     border: 0;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     line-height: 45px;
     padding: 0 15px;
     font-size: 16px;
@@ -133,12 +134,45 @@ td {
     background-color: #373b44;
     border-bottom: 2px solid #e1b866 !important;
     color: #e1b866;
-    font-weight: 700;
+    font-weight: 400;
 }
 
-td,
 th {
     padding: 8px 8px 4px 6px;
 	border: 2px solid transparent;
     text-align: left;
+}
+td {
+	padding: 8px 8px 6px 6px;
+	border: 2px solid transparent;
+	text-align: left;
+}
+.employees-table-area .delete-employee,
+.delete-all-employees {
+    /* display: inline-block; */
+    background-color: #e1b866;
+    color: 373b44;
+    border: 0;
+    font-family: 'Open Sans',
+    sans-serif;
+    font-weight: 700;
+    line-height: 28px;
+    padding: 0 15px;
+    font-size: 16px;
+    position: relative;
+    border-radius: 5px;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+tfoot td {
+	background-color: #373b44;
+	border-bottom: 2px solid #bd5532 !important;
+	color: #e1b866;
+	font-weight: 400;
+}
+tfoot .delete-all-employees {
+    background-color: #bd5532;
 }
