@@ -4,20 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery.js"></script>
     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Salary Calculator 2.0</title>
 </head>
 <body>
-    <header>
+
+
+    <header class="header-element container">
         <div class="title head">
             <h1 class="salary-calculator">Salary Calculator</h1>
         </div>
+        <div class="green"></div>
     </header>
-    <section class="add-employee">
+
+
+    <section class="add-employee container">
         <div class="title add-e">
             <h2 class="add-employee">Add Employee</h2>
         </div>
-        <div class="inputs add-e ">
+        <div class="inputs add-e">
             <form id="add-employee-inputs">
                 <input id="first-name" type="text" placeholder="First Name">
                 <input id="last-name" type="text" placeholder="Last Name">
@@ -27,8 +33,11 @@
                 <button id="submit-btn">Submit</button>
             </form>
         </div>
+        <div class="green"></div>
     </section>
-    <section class="employees-table">
+
+
+    <section class="employees-table container">
         <div class="title employee-list">
             <h2 class="employees">Employees</h2>
         </div>
@@ -59,11 +68,16 @@
                 </tfoot>
             </table>
         </div>
+        <div class="green"></div>
     </section>
-    <section class="total-monthly-salary-number-area">
+
+
+    <section class="total-monthly-salary-number-area container">
         <div class="title total-monthly-salary">
             <h3>Total Monthly: $<span id="total-salary"></span></h3>
         </div>
     </section>
+
+
 </body>
 </html>
