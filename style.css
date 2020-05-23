@@ -9,7 +9,9 @@ body {
     align-items: flex-start;
     align-content: center;
 }
-.head, .add-e {
+.head,
+.add-e,
+.employee-list {
     width: 100%;
     text-align: center;
 }
@@ -71,6 +73,7 @@ textarea {
 
 input::placeholder {
     color: #e1b866;
+    transition: all 0.5s;
 }
 
 input {
@@ -78,7 +81,8 @@ input {
 	border-bottom: 2px solid #e1b866;
     background-color: transparent;
     color: #e1b866;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans',
+    sans-serif;
 	font-size: 16px;
 	outline: none;
 	transition: all 0.5s;
@@ -86,4 +90,55 @@ input {
 
 input:focus {
 	border-bottom: 2px solid #bd5532;
+}
+
+input:focus::-webkit-input-placeholder {
+	color: #bd5532;
+}
+
+.employees-table-area {
+    width: 80%;
+    color: #e1b866;
+    font-family: 'Open Sans',
+    sans-serif;
+    font-size: 16px;
+}
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table {
+	width: 100%;
+    border-collapse: collapse;
+    /* border-spacing: 0px; */
+    
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+	background: #eee;
+}
+
+th {
+	/* background: #e1b866;
+    color: #373b44;
+    #bd5532 */
+    background-color: #373b44;
+    border-bottom: 2px solid #bd5532 !important;
+    color: #bd5532;
+	font-weight: 700;
+}
+
+td {
+    background-color: #373b44;
+    border-bottom: 2px solid #e1b866 !important;
+    color: #e1b866;
+    font-weight: 700;
+}
+
+td,
+th {
+    padding: 8px 8px 4px 6px;
+	border: 2px solid transparent;
+    text-align: left;
 }
