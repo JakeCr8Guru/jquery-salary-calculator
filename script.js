@@ -170,6 +170,9 @@ function inputSubmissionClickHandler() {
 
 
 let monthlyTotal = [];
+let sumOfArray = 0;
+let totalIs = 0;
+let number = 0;
 
 function annSalCal(salary) {
     let monthlySal = Number(salary) / 12;
@@ -177,14 +180,16 @@ function annSalCal(salary) {
 }
 
 function monthlyTotalCal(monthlySals) {
-    monthlyTotal += monthlySals;
-    return monthlyTotal;
+    let element2 = $('#total-salary');
+    element2.empty();
+    element2.append(new Intl.NumberFormat().format(monthlySals));
 }
 
 function monthlyTotalCalDOM() {
-    let number = 0;
+
     $('.table-body tr').children('.annSal').each(function () {
         let element1 = $(this).text();
+        // http://jsfiddle.net/jinglesthula/hdzTy
         number = Number(element1.replace(/[^0-9\.-]+/g, ""));
         // console.log(annSalCal(number));
         // monthlyTotal.push(annSalCal(number));
@@ -192,6 +197,18 @@ function monthlyTotalCalDOM() {
     })
     console.log(annSalCal(number));
     monthlyTotal.push(annSalCal(number));
+    // https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+    totalIs = monthlyTotal.reduce((a, b) => a + b, 0)
+    console.log(totalIs);
+    
+    // let element2 = $('#total-salary');
+    // // element2.digits();
+    // element2.append(monthlyTotal.reduce((a, b) => a + b, 0));
+
+    // console.log(sumOfArray);
+
+    monthlyTotalCal(totalIs);
+    
 }
 
 // Not sure how this works but...
