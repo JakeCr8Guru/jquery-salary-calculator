@@ -169,10 +169,10 @@ function inputSubmissionClickHandler() {
 // }
 
 
-let monthlyTotal = 0;
+let monthlyTotal = [];
 
 function annSalCal(salary) {
-    let monthlySal = salary / 12;
+    let monthlySal = Number(salary) / 12;
     return monthlySal; 
 }
 
@@ -182,9 +182,16 @@ function monthlyTotalCal(monthlySals) {
 }
 
 function monthlyTotalCalDOM() {
-    let element = $('.annSal')
-    element.each(annSalCal);
-    $('#total-salary').append(element);
+    let number = 0;
+    $('.table-body tr').children('.annSal').each(function () {
+        let element1 = $(this).text();
+        number = Number(element1.replace(/[^0-9\.-]+/g, ""));
+        // console.log(annSalCal(number));
+        // monthlyTotal.push(annSalCal(number));
+        return number;
+    })
+    console.log(annSalCal(number));
+    monthlyTotal.push(annSalCal(number));
 }
 
 // Not sure how this works but...
