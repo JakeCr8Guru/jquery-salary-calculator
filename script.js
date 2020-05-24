@@ -5,6 +5,7 @@ $(document).ready(hereWeGo);
 function hereWeGo() {
     console.log('In hereWeGo function!');
     inputSubmissionClickHandler();
+    deleteEmployeeClickHandler();
     monthlyTotalCalDOM();
 }
 
@@ -100,7 +101,7 @@ function addInputsIntoArray() {
 
     // Fun this after:
     // appendEmployeeToDOMTable();
-    let tableRowIs = $(`<tr id="${iDInputValue}"></tr>`);
+    let tableRowIs = $(`<tr class="delete-me"></tr>`);
     $('.table-body').append(tableRowIs);
     tableRowIs.append(`<td>${firstNameInputValue}</td>`);
     tableRowIs.append(`<td>${lastNameInputValue}</td>`);
@@ -110,6 +111,8 @@ function addInputsIntoArray() {
     tableRowIs.append('<td><button class="delete-employee">Clear</button></td>');
 
     monthlyTotalCalDOM();
+    deleteEmployeeClickHandler();
+    
 
 }
 // ~ End of addInputsIntoArray function ~
@@ -125,6 +128,18 @@ function inputSubmissionClickHandler() {
 }
 // End of inputSubmissionClickHandler function
 //
+
+function deleteEmployeeClickHandler() {
+    console.log('In deleteEmployeeClickHandler function!');
+    
+    let deleteBtn = $('.delete-employee')
+    // https://stackoverflow.com/questions/6831394/jquery-basic-how-can-i-remove-a-table-row-when-a-button-of-this-row-is-clicked
+    deleteBtn.on('click', deleteBtn, function (event) {
+        $(this).closest('tr').remove();
+
+    });
+}
+
 // ~ appendEmployeeToDOMTable function ~
 // - after employee is added to array it is then displayed on the DOM in the table
 // function appendEmployeeToDOMTable() {
