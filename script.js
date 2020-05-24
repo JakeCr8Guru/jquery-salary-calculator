@@ -5,6 +5,7 @@ $(document).ready(hereWeGo);
 function hereWeGo() {
     console.log('In hereWeGo function!');
     inputSubmissionClickHandler();
+    monthlyTotalCalDOM();
 }
 
 // What do I need to do?
@@ -99,14 +100,16 @@ function addInputsIntoArray() {
 
     // Fun this after:
     // appendEmployeeToDOMTable();
-    let tableRowIs = $(`<tr class="${firstNameInputValue}"></tr>`);
+    let tableRowIs = $(`<tr id="${iDInputValue}"></tr>`);
     $('.table-body').append(tableRowIs);
     tableRowIs.append(`<td>${firstNameInputValue}</td>`);
     tableRowIs.append(`<td>${lastNameInputValue}</td>`);
     tableRowIs.append(`<td>${iDInputValue}</td>`);
     tableRowIs.append(`<td>${titleInputValue}</td>`);
-    tableRowIs.append(`<td>$${annualSalaryInputValue}</td>`);
+    tableRowIs.append(`<td class="annSal">$${annualSalaryInputValue}</td>`);
     tableRowIs.append('<td><button class="delete-employee">Clear</button></td>');
+
+    monthlyTotalCalDOM();
 
 }
 // ~ End of addInputsIntoArray function ~
@@ -118,6 +121,7 @@ function inputSubmissionClickHandler() {
     const inputSubmissionButton = $('#submit-btn');
     inputSubmissionButton.click(addInputsIntoArray);
     // alert('You Clicked Me!');
+    
 }
 // End of inputSubmissionClickHandler function
 //
@@ -164,6 +168,24 @@ function inputSubmissionClickHandler() {
 //     }
 // }
 
+
+let monthlyTotal = 0;
+
+function annSalCal(salary) {
+    let monthlySal = salary / 12;
+    return monthlySal; 
+}
+
+function monthlyTotalCal(monthlySals) {
+    monthlyTotal += monthlySals;
+    return monthlyTotal;
+}
+
+function monthlyTotalCalDOM() {
+    let element = $('.annSal')
+    element.each(annSalCal);
+    $('#total-salary').append(element);
+}
 
 // Not sure how this works but...
 // https://stackoverflow.com/questions/1990512/add-comma-to-numbers-every-three-digits
