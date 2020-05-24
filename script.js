@@ -91,14 +91,22 @@ function addInputsIntoArray() {
     }
 
     // Empty inputs:
-    $('#first-name').val(' ');
-    $('#last-name').val(' ');
-    $('#id').val(' ');
-    $('#title').val(' ');
-    $('#annual-salary').val(' ');
+    $('#first-name').val('');
+    $('#last-name').val('');
+    $('#id').val('');
+    $('#title').val('');
+    $('#annual-salary').val('');
 
     // Fun this after:
-    appendEmployeeToDOMTable();
+    // appendEmployeeToDOMTable();
+    let tableRowIs = $(`<tr class="${firstNameInputValue}"></tr>`);
+    $('.table-body').append(tableRowIs);
+    tableRowIs.append(`<td>${firstNameInputValue}</td>`);
+    tableRowIs.append(`<td>${lastNameInputValue}</td>`);
+    tableRowIs.append(`<td>${iDInputValue}</td>`);
+    tableRowIs.append(`<td>${titleInputValue}</td>`);
+    tableRowIs.append(`<td>$${annualSalaryInputValue}</td>`);
+    tableRowIs.append('<td><button class="delete-employee">Clear</button></td>');
 
 }
 // ~ End of addInputsIntoArray function ~
@@ -115,39 +123,46 @@ function inputSubmissionClickHandler() {
 //
 // ~ appendEmployeeToDOMTable function ~
 // - after employee is added to array it is then displayed on the DOM in the table
-function appendEmployeeToDOMTable() {
-    console.log('In appendEmployeeToDOMTable function!');
+// function appendEmployeeToDOMTable() {
+//     console.log('In appendEmployeeToDOMTable function!');
     
-    // Create area to append to:
-    // $('#employees-table tbody').append(`<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
-    // const tableRowIs = $(`<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
-    // loop through array take the keys of the objects and display those keys in the correct children of the table rows
-    for (let i = 0; i < addedEmployeeArray.length; i++) {
-        const employee = addedEmployeeArray[i];
-        // Variables for key values:
-        const employeeFirstName = employee.first;
-        const employeeLastName = employee.last;
-        const employeeID = employee.id;
-        const employeeTitle = employee.title;
-        const employeeAnnualSalary = employee.salary;
-        // Variables for table locations
-        const tableRowIs = $(`<tr></tr>`);
-        $(tableRowIs).addClass(employeeFirstName);
-        const firstNameArea = $(`.${employeeFirstName} td:last-child`);
-        firstNameArea.append(employeeFirstName);
-        const lastNameArea = $(`.${employeeFirstName} td:last-child`);
-        lastNameArea.append(employeeLastName);
-        const iDArea = $(`.${employeeFirstName} td:last-child`);
-        iDArea.append(employeeID);
-        const titleArea = $(`.${employeeFirstName} td:last-child`);
-        titleArea.append(employeeTitle);
-        const salaryArea = $(`.${employeeFirstName} td:last-child`);
-        salaryArea.append(`\$${employeeAnnualSalary}`).digits();
-        const buttonArea = $(`.${employeeFirstName} td:last-child`);
-        buttonArea.append('<button class="delete-employee">Clear</button>');
-        $('.table-body').append(tableRowIs);
-    }
-}
+//     // Create area to append to:
+//     // $('#employees-table tbody').append(`<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
+//     let tableRowIs = $(`<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
+//     // loop through array take the keys of the objects and display those keys in the correct children of the table rows
+//     for (let i = 0; i < addedEmployeeArray.length; i++) {
+//         const employee = addedEmployeeArray[i];
+//         // Variables for key values:
+//         const employeeFirstName = employee.first;
+//         const employeeLastName = employee.last;
+//         const employeeID = employee.id;
+//         const employeeTitle = employee.title;
+//         const employeeAnnualSalary = employee.salary;
+//         // Variables for table locations
+//         // const tableRowIs = $(`<tr></tr>`);
+//         $('.table-body').prepend(tableRowIs);
+//         $(tableRowIs).addClass(employeeFirstName);
+//         const firstNameArea = $(`.${employeeFirstName} td:nth-child(1)`);
+//         firstNameArea.addClass(employeeLastName);
+//         firstNameArea.append(employeeFirstName);
+//         const lastNameArea = $(`.${employeeFirstName} td:nth-child(2)`);
+//         lastNameArea.addClass(employeeLastName);
+//         lastNameArea.append(employeeLastName);
+//         const iDArea = $(`.${employeeFirstName} td:nth-child(3)`);
+//         iDArea.addClass(employeeLastName);
+//         iDArea.append(employeeID);
+//         const titleArea = $(`.${employeeFirstName} td:nth-child(4)`);
+//         titleArea.addClass(employeeLastName);
+//         titleArea.append(employeeTitle);
+//         const salaryArea = $(`.${employeeFirstName} td:nth-child(5)`);
+//         salaryArea.addClass(employeeLastName);
+//         salaryArea.append(`\$${employeeAnnualSalary}`).digits();
+//         const buttonArea = $(`.${employeeFirstName} td:nth-child(6)`);
+//         buttonArea.addClass(employeeLastName);
+//         buttonArea.append('<button class="delete-employee">Clear</button>');
+        
+//     }
+// }
 
 
 // Not sure how this works but...
