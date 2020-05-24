@@ -107,7 +107,7 @@ function addInputsIntoArray() {
     tableRowIs.append(`<td>${lastNameInputValue}</td>`);
     tableRowIs.append(`<td>${iDInputValue}</td>`);
     tableRowIs.append(`<td>${titleInputValue}</td>`);
-    tableRowIs.append(`<td class="annSal">$${annualSalaryInputValue}</td>`);
+    tableRowIs.append(`<td class="annSal">${annualSalaryInputValue}</td>`);
     tableRowIs.append('<td><button class="delete-employee">Clear</button></td>');
 
     monthlyTotalCalDOM();
@@ -131,13 +131,24 @@ function inputSubmissionClickHandler() {
 
 function deleteEmployeeClickHandler() {
     console.log('In deleteEmployeeClickHandler function!');
-    
     let deleteBtn = $('.delete-employee')
     // https://stackoverflow.com/questions/6831394/jquery-basic-how-can-i-remove-a-table-row-when-a-button-of-this-row-is-clicked
     deleteBtn.on('click', deleteBtn, function (event) {
+        for (let i = 0; i < monthlyTotal.length; i++) {
+            const iterator = monthlyTotal[i];
+            console.log('In for of loop');
+            $('.table-body tr').children('.annSal').each(function () {
+                let element = Number($(this).text());
+                element = element / 12;
+                if (iterator === element) {
+                    console.log('In if conditional');
+                    monthlyTotal.splice(i, 1);
+                }
+            });
+        }
         $(this).closest('tr').remove();
-
     });
+    // monthlyTotalCalDOM();
 }
 
 // ~ appendEmployeeToDOMTable function ~
