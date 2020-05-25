@@ -94,7 +94,6 @@ function inputSubmissionClickHandler() {
 
 // ~ deleteEmployeeClickHandler ~
 // - on click this function will delete the row that it is in and splice the monthly salary index of which it is in the monthlyTotal array
-// - HAS BUGS...
 function deleteEmployeeClickHandler() {
     console.log('In deleteEmployeeClickHandler function!');
     let deleteBtn = $('.delete-employee')
@@ -107,7 +106,6 @@ function deleteEmployeeClickHandler() {
                 let element = Number($(this).text());
                 element = element / 12;
                 if (iterator !== element) {
-                    // Not selecting the correct element...
                     console.log('In if conditional');
                     monthlyTotal.splice(i, 1);
                 }
@@ -168,8 +166,8 @@ function monthlyTotalCal(monthlySals) {
 }
 // ~ End of monthlyTotalCal function ~
 
-// Do I need a function that loops through the updated array and then appends?
-
+// ~ newTotalMonthlyDisplay function ~
+// - this function updates DOM with new array status
 function newTotalMonthlyDisplay(monthlyTotalArray) {
     console.log('In newTotalMonthlyDisplay function!');
     
@@ -181,3 +179,4 @@ function newTotalMonthlyDisplay(monthlyTotalArray) {
     totalMonthlyDisplay.empty();
     totalMonthlyDisplay.append(new Intl.NumberFormat().format(newTotal));
 }
+// ~ End of ewTotalMonthlyDisplay function ~
