@@ -106,17 +106,16 @@ function deleteEmployeeClickHandler() {
             $('.table-body tr').children('.annSal').each(function () {
                 let element = Number($(this).text());
                 element = element / 12;
-                if (iterator === element) {
+                if (iterator !== element) {
+                    // Not selecting the correct element...
                     console.log('In if conditional');
                     monthlyTotal.splice(i, 1);
-                    // newTotalMonthlyDisplay(monthlyTotal);
                 }
                 newTotalMonthlyDisplay(monthlyTotal);
             });
         }
         $(this).closest('tr').remove();
     });
-    // newTotalMonthlyDisplay(monthlyTotal);
 }
 // ~ End of deleteEmployeeClickHandler ~
 
