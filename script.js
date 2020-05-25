@@ -75,7 +75,7 @@ function addInputsIntoArray() {
     tableRowIs.append(`<td>${iDInputValue}</td>`);
     tableRowIs.append(`<td>${titleInputValue}</td>`);
     tableRowIs.append(`<td class="annSal">${annualSalaryInputValue}</td>`);
-    tableRowIs.append('<td><button class="delete-employee">Clear</button></td>');
+    tableRowIs.append('<td><button class="delete-employee">Clear Row</button></td>');
     // Runs these functions:
     monthlyTotalCalDOM();
     deleteEmployeeClickHandler();
@@ -109,11 +109,14 @@ function deleteEmployeeClickHandler() {
                 if (iterator === element) {
                     console.log('In if conditional');
                     monthlyTotal.splice(i, 1);
+                    // newTotalMonthlyDisplay(monthlyTotal);
                 }
+                newTotalMonthlyDisplay(monthlyTotal);
             });
         }
         $(this).closest('tr').remove();
     });
+    // newTotalMonthlyDisplay(monthlyTotal);
 }
 // ~ End of deleteEmployeeClickHandler ~
 
@@ -133,22 +136,49 @@ function monthlyTotalCalDOM() {
         number = Number(element1.replace(/[^0-9\.-]+/g, ""));
         return number;
     })
+
     console.log(annSalCal(number));
     monthlyTotal.push(annSalCal(number));
     // https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     totalIs = monthlyTotal.reduce((a, b) => a + b, 0)
+
     console.log(totalIs);
     monthlyTotalCal(totalIs);
 
-    function annSalCal(salary) {
-        let monthlySal = Number(salary) / 12;
-        return monthlySal;
-    }
-
-    function monthlyTotalCal(monthlySals) {
-        let element2 = $('#total-salary');
-        element2.empty();
-        element2.append(new Intl.NumberFormat().format(monthlySals));
-    }
 }
 // ~ End of monthlyTotalCalDOM function ~
+
+// ~ annSalCal function ~
+// - this function takes the personal annual salary and returns monthly salary
+function annSalCal(salary) {
+	console.log('In annSalCal function!');
+	// monthlySal is each annual salary devided my total months in year
+	let monthlySal = Number(salary) / 12;
+	// return the monthly salary
+	return monthlySal;
+}
+// ~ End of annSalCal function ~
+
+// ~ monthlyTotalCal function ~
+// - this function appends the total of each monthly salary to the DOM
+function monthlyTotalCal(monthlySals) {
+	console.log('In monthlyTotalCal function!');
+	let element2 = $('#total-salary');
+	element2.empty();
+	element2.append(new Intl.NumberFormat().format(monthlySals));
+}
+// ~ End of monthlyTotalCal function ~
+
+// Do I need a function that loops through the updated array and then appends?
+
+function newTotalMonthlyDisplay(monthlyTotalArray) {
+    console.log('In newTotalMonthlyDisplay function!');
+    
+    let newTotal = 0;
+    for (const numberValues of monthlyTotalArray) {
+        newTotal += numberValues;
+    }
+    let totalMonthlyDisplay = $('#total-salary');
+    totalMonthlyDisplay.empty();
+    totalMonthlyDisplay.append(new Intl.NumberFormat().format(newTotal));
+}
