@@ -1,7 +1,11 @@
+
+/* Body Style */
 body {
     margin: 0;
     background-color: #373b44;
 }
+
+/* Container Class that adds flex and centering for parents */
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -9,28 +13,38 @@ body {
     align-items: flex-start;
     align-content: center;
 }
+
+/* Style to align text center for header areas */
 .head,
 .add-e,
 .employee-list {
     width: 100%;
     text-align: center;
 }
+
+/* Green line at bottom of areas */
 .green {
     background-color: mediumaquamarine;
     height: 2px;
     width: 90%;
     border-radius: 10;
 }
+
+/* Title text styling */
 .title {
     font-family: 'Space Mono', monospace;
 }
+
 .title, h1 {
     font-weight: 700;
 }
+
 .title {
     color: #dee1b6;
 }
+/* ----------------- */
 
+/* Input field styling */
 .inputs {
     display: flex;
     flex-flow: row wrap;
@@ -38,6 +52,7 @@ body {
     align-items: flex-start;
     align-content: center;
 }
+
 .add-employee-inputs {
     display: block;
 }
@@ -55,7 +70,6 @@ input {
 }
 
 #submit-btn {
-    /* display: inline-block; */
     background-color: #e1b866;
     color: 373b44;
     border: 0;
@@ -96,7 +110,9 @@ input:focus {
 input:focus::-webkit-input-placeholder {
 	color: #bd5532;
 }
+/* ------------------- */
 
+/* Table Styling */
 .employees-table-area {
     width: 80%;
     color: #e1b866;
@@ -111,19 +127,12 @@ Generic Styling, for Desktops/Laptops
 table {
 	width: 100%;
     border-collapse: collapse;
-    /* border-spacing: 0px; */
-    
 }
 
-/* Zebra striping */
-tr:nth-of-type(odd) {
-	/* background: #eee; */
-}
+/* tr:nth-of-type(odd) {
+} */
 
 th {
-	/* background: #e1b866;
-    color: #373b44;
-    #bd5532 */
     background-color: #373b44;
     border-bottom: 2px solid #bd5532 !important;
     color: #bd5532;
@@ -147,9 +156,9 @@ td {
 	border: 2px solid transparent;
 	text-align: left;
 }
-.employees-table-area .delete-employee,
+.employees-table-area
+.delete-employee,
 .delete-all-employees {
-    /* display: inline-block; */
     background-color: #e1b866;
     color: 373b44;
     border: 0;
